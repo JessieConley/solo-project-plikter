@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -26,18 +26,8 @@ function* fetchUser() {
 
 function* addChild(action) {
   try {
-    // clear any existing error on the user page
-    yield put({ type: "CLEAR_REGISTRATION_ERROR" });
-
-    // passes the username and password from the payload to the server
-    yield axios.post("/api/user/register", action.payload);
-
-    // automatically log a user in after registration
-    yield put({ type: "LOGIN", payload: action.payload });
-
-    // set to 'login' mode so they see the login screen
-    // after registration or after they log out
-    yield put({ type: "SET_TO_LOGIN_MODE" });
+    // passes the child_name and date_of_birth from the payload to the server
+    yield axios.post("/child/addChild", action.payload);
   } catch (error) {
     console.log("Error with user registration:", error);
     yield put({ type: "REGISTRATION_FAILED" });
@@ -46,6 +36,7 @@ function* addChild(action) {
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeEvery('FETCH_CHILD', addChild);
 }
 
 
