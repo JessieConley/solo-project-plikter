@@ -32,10 +32,23 @@ const registrationMessage = (state = '', action) => {
   }
 };
 
+const addChildMessage = (state = "", action) => {
+  switch (action.type) {
+    case "CLEAR_ADD_CHILD_ERROR":
+      return "";
+    case "ADD_CHILD_INPUT_ERROR":
+      return "Choose a child name and their date of birth!";
+    case "ADDING_CHILD_FAILED":
+      return "Oops! That didn't work. Try again!";
+    default:
+      return state;
+  }
+};
 // make one object that has keys loginMessage, registrationMessage
 // these will be on the redux state at:
 // state.errors.loginMessage and state.errors.registrationMessage
 export default combineReducers({
   loginMessage,
   registrationMessage,
+  addChildMessage,
 });

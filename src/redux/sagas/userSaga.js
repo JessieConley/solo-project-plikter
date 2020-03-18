@@ -26,6 +26,8 @@ function* fetchUser() {
 
 function* addChild(action) {
   try {
+    // clear any existing error on the registration page
+    yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
     // passes the child_name and date_of_birth from the payload to the server
     yield axios.post("/child/addChild", action.payload);
   } catch (error) {
