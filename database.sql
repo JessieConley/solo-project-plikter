@@ -22,7 +22,8 @@ CREATE TABLE "tasks"
 (
     "id" SERIAL PRIMARY KEY,
     "task_name" varchar,
-    "level" INT
+    "level" INT,
+    "account_user_id" INT References "user"
 );
 
 INSERT INTO "tasks"
@@ -49,5 +50,4 @@ CREATE TABLE "user_tasks"
     "complete" boolean
 );
 
-ALTER TABLE "tasks"
-ADD COLUMN "account_user_id" INT References "user";
+

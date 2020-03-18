@@ -3,23 +3,24 @@ import {connect} from 'react-redux';
 
 class RegisterPage extends Component {
   state = {
+    name: '',
     username: '',
-    password: '',
-  };
-
+    password: ''
+    }
+    
   registerUser = (event) => {
     event.preventDefault();
-
-    if (this.state.username && this.state.password) {
+    if (this.state.name && this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'REGISTER',
+        type: "REGISTER",
         payload: {
+          name: this.state.name,
           username: this.state.username,
-          password: this.state.password,
-        },
+          password: this.state.password
+        }
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }
   } // end registerUser
 
@@ -33,15 +34,23 @@ class RegisterPage extends Component {
     return (
       <div>
         {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
+          <h2 className="alert" role="alert">
             {this.props.errors.registrationMessage}
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h1>Register New User</h1>
+          <div>
+            <label htmlFor="name">
+              Name:
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleInputChangeFor("name")}
+              />
+            </label>
+          </div>
           <div>
             <label htmlFor="username">
               Username:
@@ -49,7 +58,7 @@ class RegisterPage extends Component {
                 type="text"
                 name="username"
                 value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                onChange={this.handleInputChangeFor("username")}
               />
             </label>
           </div>
@@ -60,7 +69,7 @@ class RegisterPage extends Component {
                 type="password"
                 name="password"
                 value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
+                onChange={this.handleInputChangeFor("password")}
               />
             </label>
           </div>
@@ -77,7 +86,9 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => {
+              this.props.dispatch({ type: "SET_TO_LOGIN_MODE" });
+            }}
           >
             Login
           </button>

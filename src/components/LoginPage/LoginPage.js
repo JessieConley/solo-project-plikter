@@ -9,7 +9,7 @@ class LoginPage extends Component {
 
   login = (event) => {
     event.preventDefault();
-
+    console.log("in registerUser with:", this.state);
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
@@ -41,7 +41,7 @@ class LoginPage extends Component {
           </h2>
         )}
         <form onSubmit={this.login}>
-          <h1>Login</h1>
+          <h2>Parent/Guardian Login</h2>
           <div>
             <label htmlFor="username">
               Username:
@@ -74,12 +74,13 @@ class LoginPage extends Component {
           </div>
         </form>
         <center>
+          <p>New user?</p>
           <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
-            Register
+            Sign Up
           </button>
         </center>
       </div>
