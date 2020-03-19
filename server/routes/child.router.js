@@ -7,8 +7,8 @@ const userStrategy = require("../strategies/user.strategy");
 const router = express.Router();
 
 // Handles Ajax request to get child info
-router.get('/child/:id', (req, res) => {
-console.log("in server/child/:id GET");
+router.get('/:id', (req, res) => {
+console.log("in server/:id GET");
 const queryText = `select * from "children"
 where "parent_user_id" = ${req.params.id};`;
 pool.query(queryText)
@@ -27,10 +27,11 @@ router.post('/addChild', (req, res, next) => {
   console.log('in router POST with', req.body);
   const childName = req.body.childName;
   const dateOfBirth = req.body.dateOfBirth;
+  const parentUserId = req.body.parentUserId;
   const queryText =
-    'INSERT INTO "children" (child_name, date_of_birth) VALUES ($1, $2) RETURNING "id";';
+    `INSERT INTO "children" ("child_name", "date_of_birth", "parent_user_id" ) VALUES ($1, $2, $3) RETURNING "child_name";`;
   pool
-    .query(queryText, [childName, dateOfBirth])
+    .query(queryText, [childName, dateOfBirth, parentUserId])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });

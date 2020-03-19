@@ -5,9 +5,10 @@ class RegisterPage extends Component {
   state = {
     childName: "",
     dateOfBirth: "",
+    
   };
 
-  //Add child to user account 
+  //Add child to user account
   addChild = event => {
     event.preventDefault();
     if (this.state.childName && this.state.dateOfBirth) {
@@ -15,7 +16,8 @@ class RegisterPage extends Component {
         type: "FETCH_CHILD",
         payload: {
           childName: this.state.childName,
-          dateOfBirth: this.state.dateOfBirth
+          dateOfBirth: this.state.dateOfBirth,
+          parentUserId: this.props.user.id
         }
       });
     } else {
@@ -62,24 +64,25 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
+            <center>
+              <input
+                className="addChild"
+                type="submit"
+                name="submit"
+                value="Add Child"
+              />
+            </center>
           </div>
         </form>
-        <center>
-          <button
+
+        {/* <button
             type="button"
             onClick={() => {
               this.props.dispatch({ type: "SET_CHILD" });
             }}
           >
             Add Child
-          </button>
-        </center>
+          </button> */}
       </div>
     );
   }
@@ -89,7 +92,8 @@ class RegisterPage extends Component {
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
-  errors: state.errors
+  errors: state.errors,
+  user: state.user 
 });
 
 export default connect(mapStateToProps)(RegisterPage);
