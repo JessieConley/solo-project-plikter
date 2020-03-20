@@ -6,7 +6,7 @@ const userStrategy = require("../strategies/user.strategy");
 
 const router = express.Router();
 
-// Handles Ajax request to get child info
+// Handles Ajax GET request to get child info
 router.get('/:id', (req, res) => {
 console.log("in server/:id GET");
 const queryText = `select * from "children"
@@ -22,7 +22,7 @@ pool.query(queryText)
   
 });
 
-// Handles POST request with add child data
+// Handles Ajax POST request to add child info to database
 router.post('/addChild', (req, res, next) => {
   console.log('in router POST with', req.body);
   const childName = req.body.childName;
@@ -35,6 +35,8 @@ router.post('/addChild', (req, res, next) => {
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
+
+
 
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route

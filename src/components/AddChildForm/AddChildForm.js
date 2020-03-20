@@ -23,6 +23,7 @@ class RegisterPage extends Component {
     } else {
       this.props.dispatch({ type: "ADD_CHILD_INPUT_ERROR" });
     }
+    this.props.history.push('/add-child-confirmation');
   }; // end addChild
 
   handleInputChangeFor = propertyName => event => {

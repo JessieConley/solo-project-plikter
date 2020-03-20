@@ -24,21 +24,48 @@ function* fetchUser() {
   }
 }
 
-function* addChild(action) {
+function* getChildren(action) {
+  console.log("saga coming from userSaga with:", action);
   try {
-    // clear any existing error on the registration page
-    yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
-    // passes the child_name and date_of_birth from the payload to the server
-    yield axios.post("/child/addChild", action.payload);
+    const response = yield axios.get(`/child/${action.parentId}`);
+    console.log('in saga with', response.data);
+    yield put({ type: "SET_CHILD", payload: response.data });
   } catch (error) {
-    console.log("Error with user registration:", error);
-    yield put({ type: "REGISTRATION_FAILED" });
+    console.log(error);
   }
 }
+
+function* addChild(action) {
+  try {
+    // passes the child_name and date_of_birth from the payload to the server
+    yield axios.post("/child/addChild", action.payload);
+    // yield put({type: "FETCH_CHILD", payload: action.payload});
+  } catch (error) {
+    console.log("Error with adding child to account:", error);
+    yield put({ type: "ADDING_CHILD_FAILED" });
+  }
+}
+
+// Handles Ajax request to get child info
+// router.get('/:id', (req, res) => {
+// console.log("in server/:id GET");
+// const queryText = `select * from "children"
+// where "parent_user_id" = ${req.params.id};`;
+// pool.query(queryText)
+// .then(result => {
+//         res.send(result.rows);
+// })
+// .catch(error => {
+//     console.log('Error getting query', error);
+//     res.sendStatus(500);
+//  });
+  
+// });
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeEvery('FETCH_CHILD', addChild);
+  yield takeLatest('SET_CHILD_1', getChildren);
 }
 
 
