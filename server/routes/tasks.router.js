@@ -20,7 +20,21 @@ router.get('/', (req, res) => {
     });
 });
 
-//Handles Ajax POST to add selected tasks to "user_tasks" table
+// Handles Ajax GET request to get tasks selected by user
+router.get('/child-tasks', (req, res) => {
+  console.log("in tasks router GET", req.body);
+  const queryText = 'SELECT * from "user_tasks";';
+  pool.query(queryText)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log("Error getting query", error);
+      res.sendStatus(500);
+    });
+});
+
+//Handles Ajax POST to update task status on "user_tasks" table
 router.post('/table', (req, res, next) => {
   console.log("in router POST with", req.body);
   const userId = req.body.userId;
@@ -49,6 +63,18 @@ router.put('/:id', (req,res) => {
 })
 
 //Handles Ajax Delete to delete task from chart and user-tasks table
+router.delete('/:id', (req, res) => {
+  console.log("in router.delete /:id", req.params);
+  queryText = `DELETE FROM "user_tasks" WHERE "id" = ${req.params.id}`;
+  pool.query(queryText)
+  .then(() =>{
+    res.sendStatus(200);
+  }).catch(error => {
+    console.log('error deleting task', error);
+    res.sendStatus(500);
+  })
+});
+
 
 //Use below for checking route paths for issue
 // console.log(router.stack);

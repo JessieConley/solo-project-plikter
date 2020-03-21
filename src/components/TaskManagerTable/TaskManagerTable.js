@@ -22,10 +22,10 @@ class TaskManagerTable extends Component {
       
 //   }
 
-handleAddTask = () => {
-    console.log(this.state.tasks);
-    this.props.dispatch({ type: 'SET_TASK_POST', payload:this.state.taskList });
-}
+// handleAddTask = () => {
+//     console.log(this.state.tasks);
+//     this.props.dispatch({ type: 'SET_TASK_POST', payload:this.state.taskList });
+// }
 
 //Function to advance user to Add New Task page
 //   addNewTaskClick = () => {

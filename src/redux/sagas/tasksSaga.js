@@ -1,6 +1,6 @@
 import axios from "axios";
 import { put, takeLatest } from "redux-saga/effects";
-import { Router } from "express";
+// import { Router } from "express";
 
 
 //Get all default tasks to display in select dropdown 
@@ -25,14 +25,14 @@ function* postTasks(action){
   }
 }
 
-// Update task status on chart and user-tasks table
-function* updateTaskStatus(update){
-  console.log('in updateTaskStatus', update.payload);
-  try{
-    yield axios.put(`/tasks/'${}`)
-    ({type:"SET_TASK_1" })
-  }
-}
+// // Update task status on chart and user-tasks table
+// function* updateTaskStatus(update){
+//   console.log('in updateTaskStatus', update.payload);
+//   try{
+//     yield axios.put(`/tasks/'${}`)
+//     ({type:"SET_TASK_1" })
+//   }
+// }
 
 
 //Allow deletion of task from child's task table
@@ -45,7 +45,7 @@ function* tasksSaga() {
     yield takeLatest('SET_TASK_1', getTasks);
     //Get tasks to post to child table
     yield takeLatest('SET_TASK_POST', postTasks);
-}
+ }
 
 
 
