@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const childRouter = require("./routes/child.router");
-
+const tasksRouter = require("./routes/tasks.router");
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +26,13 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/child', childRouter);
+app.use('/tasks', tasksRouter);
+
+// app._router.stack.forEach(function(r) {
+//   if (r.route && r.route.path) {
+//     console.log(r.route.path);
+//   }
+// });
 
 // Serve static files
 app.use(express.static('build'));
