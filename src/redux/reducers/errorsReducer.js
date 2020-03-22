@@ -44,6 +44,19 @@ const addChildMessage = (state = "", action) => {
       return state;
   }
 };
+
+const addTaskMessage = (state = "", action) => {
+  switch (action.type) {
+    case "CLEAR_ADD_TASK_ERROR":
+      return "";
+    case "ADD_TASK_INPUT_ERROR":
+      return "Choose a task name and due date!";
+    case "ADDING_TASK_FAILED":
+      return "Oops! That didn't work. Try again!";
+    default:
+      return state;
+  }
+};
 // make one object that has keys loginMessage, registrationMessage
 // these will be on the redux state at:
 // state.errors.loginMessage and state.errors.registrationMessage
@@ -51,4 +64,5 @@ export default combineReducers({
   loginMessage,
   registrationMessage,
   addChildMessage,
+  addTaskMessage,
 });

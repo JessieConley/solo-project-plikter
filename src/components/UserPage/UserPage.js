@@ -15,11 +15,16 @@ class UserPage extends Component {
   };
 
   //Set up function to advance user to child task table on click
-  onChildButtonClick = () =>{
+  onChildButtonClick = (event) =>{
+     console.log("in toAddChildForm", event.target.dataset.id);
+     this.props.dispatch({
+       type: "SET_ACTIVE_CHILD",
+       activeChildId: event.target.dataset.id
+     });
     this.props.history.push("/task-manager-table");
   }
 
-  toAddChildForm = () => {
+  toAddChildForm = (event) => {
     this.props.history.push("/add-child-form");
   };
 
@@ -33,11 +38,11 @@ class UserPage extends Component {
         
           <div className="childDisplay">
             <center>
-              {this.props.child.length  && 
+              {this.props.child.length > 0 && 
               this.props.child.map(name => {
                 // <div className="buttonDisplay" >
                 return (
-                  <button onClick={this.onChildButtonClick}>
+                  <button data-id={name.id} onClick={this.onChildButtonClick}>
                     {name.child_name}
                   </button>
                 );

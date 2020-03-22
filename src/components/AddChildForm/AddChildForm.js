@@ -76,14 +76,6 @@ class RegisterPage extends Component {
           </div>
         </form>
 
-        {/* <button
-            type="button"
-            onClick={() => {
-              this.props.dispatch({ type: "SET_CHILD" });
-            }}
-          >
-            Add Child
-          </button> */}
       </div>
     );
   }
