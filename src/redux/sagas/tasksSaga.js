@@ -15,6 +15,7 @@ function* getTasks() {
   }
 } 
 
+// { type: "FETCH_TASK_1", childId: 5 }
 function* getSelectedTasks(action) {
   console.log("getSelectedTasks from task saga", action);
   try {
@@ -39,19 +40,21 @@ function* postTasks(action){
 function* deleteTasks(remove) {
   console.log("deleteTasks Tasks SAGA", remove.payload);
   try {
-    yield axios.delete(`/tasks/delete/${remove.payload}`);
-    yield put({ type: "FETCH_TASK_1"});
+    yield axios.delete(`/tasks/delete/${remove.payload}`, remove.payload);
+    yield put({ type: "FETCH_TASK_1", childId: remove.childId });
   } catch (error) {
     console.log("Error deleting", error);
   }
 }
 
 //PUT: Update task status on active chart
+// { type: "CHANGE_TASK_STATUS", userTaskId: 4, childId: 8, complete: true }
+// { type: "CHANGE_TASK_STATUS", payload: {userTaskId: 4, childId: 8, complete: true}}
 function* updateTaskStatus(update){
   console.log('in updateTask of tasks saga', update.payload);
   try{
-    yield axios.put(`tasks/update/${update.childId}`, update.payload);
-    yield put({type:"FETCH_TASK_1" })
+    yield axios.put(`tasks/update/${update.payload}`, {complete: update.complete});
+    yield put({type:"FETCH_TASK_1", childId: update.childId });
   }catch(error){
     console.log('Error updating task status', error);
   }

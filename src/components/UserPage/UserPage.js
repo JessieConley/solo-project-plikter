@@ -19,8 +19,12 @@ class UserPage extends Component {
      console.log("in toAddChildForm", event.target.dataset.id);
      this.props.dispatch({
        type: "SET_ACTIVE_CHILD",
-       activeChildId: event.target.dataset.id
+       activeChild: {
+        id: event.target.dataset.id,
+        name: event.target.dataset.name
+      }
      });
+
     this.props.history.push("/task-manager-table");
   }
 
@@ -42,7 +46,7 @@ class UserPage extends Component {
               this.props.child.map(name => {
                 // <div className="buttonDisplay" >
                 return (
-                  <button data-id={name.id} onClick={this.onChildButtonClick}>
+                  <button data-id={name.id} data-name={name.child_name} onClick={this.onChildButtonClick}>
                     {name.child_name}
                   </button>
                 );

@@ -56,9 +56,9 @@ router.post('/table', (req, res, next) => {
 //Handles Ajax PUT to update task status on chart and user-tasks table
 router.put('/update/:id', (req,res) => {
   console.log('in task PUT router with', req.body.taskStatus);
-  const taskId = req.body.task_Id;
+  const taskId = req.params.id;
   const taskStatus = req.body.complete;
-  const queryText = `Update "user_tasks" SET "complete" = $1 WHERE id=$2;`;
+  const queryText = `Update "user_tasks" SET "complete" = $2 WHERE id=$1;`;
   pool.query(queryText,[taskId, taskStatus])
   .then(() => {
     res.sendStatus(200);
