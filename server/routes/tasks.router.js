@@ -54,7 +54,7 @@ router.post('/table', (req, res, next) => {
 
 
 //Handles Ajax PUT to update task status on chart and user-tasks table
-// router.put('/:id', (req,res) => {
+// router.put('/status/:id', (req,res) => {
 //   console.log('in task PUT router with', req.body);
 //   const queryText = `Update "user_tasks" SET "complete" = '${req.body.status} WHERE id='${req.body.userTaskId}`;
 //   poolquery(queryText)
@@ -66,18 +66,18 @@ router.post('/table', (req, res, next) => {
 //   })
 // })
 
-// // Handles Ajax Delete to delete task from chart and user-tasks table
-// router.delete('/:id', (req, res) => {
-//   console.log("in router.delete /:id", req.params);
-//   queryText = `DELETE FROM "user_tasks" WHERE "id" = ${req.params.id}`;
-//   pool.query(queryText)
-//   .then(() =>{
-//     res.sendStatus(200);
-//   }).catch(error => {
-//     console.log('error deleting task', error);
-//     res.sendStatus(500);
-//   })
-// });
+// Handles Ajax Delete to delete task from chart and user-tasks table
+router.delete('/:id', (req, res) => {
+  console.log("in router.delete /:id", req.params.id);
+  queryText = `DELETE FROM "user_tasks" WHERE "id" = $1;`;
+  pool.query(queryText, [req.params.id])
+  .then(() =>{
+    res.sendStatus(200);
+  }).catch(error => {
+    console.log('error deleting task', error);
+    res.sendStatus(500);
+  })
+});
 
 
 //Use below for checking route paths for issue

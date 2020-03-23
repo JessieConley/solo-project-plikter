@@ -36,6 +36,15 @@ function* postTasks(action){
   }
 }
 
+function* deleteTasks(remove) {
+  console.log("deleteTasks Tasks SAGA", remove.payload);
+  try {
+    yield axios.delete(`/tasks/${remove.payload}`);
+    yield put({ type: "FETCH_TASK_1"});
+  } catch (error) {
+    console.log("Error deleting", error);
+  }
+}
 // // Update task status on chart and user-tasks table
 // function* updateTaskStatus(update){
 //   console.log('in updateTaskStatus', update.payload);
@@ -58,7 +67,8 @@ function* tasksSaga() {
     yield takeLatest('SET_SELECTED_TASK', postTasks);
     //Get tasks to post to child table
     yield takeLatest('FETCH_TASK_1', getSelectedTasks);
-   
+    //Get tasks to delete from child table
+    yield takeLatest('REMOVE_TASK', deleteTasks);
  }
 
 

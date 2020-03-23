@@ -46,6 +46,11 @@ class TaskManagerTable extends Component {
     });
   };
 
+  //Delete task from table
+  deleteTask = remove => {
+    this.props.dispatch({type: "REMOVE_TASK", payload: remove})
+  };
+
   //Function to advance user to Add New Task page
   //   addNewTaskClick = () => {
   //     this.props.history.push("/add-new-task");
@@ -131,7 +136,9 @@ class TaskManagerTable extends Component {
                             </button>
                           </td>
                           <td>
-                            <button>Delete</button>
+                            <button onClick={() => this.deleteTask(taskNames.id)}>
+                              Delete
+                            </button>
                           </td>
                         </tr>
                       );
