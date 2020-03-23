@@ -35,40 +35,42 @@ function* postTasks(action){
     console.log('Table post request failed', error)
   }
 }
-
+//DELETE: Delete task from active task table
 function* deleteTasks(remove) {
   console.log("deleteTasks Tasks SAGA", remove.payload);
   try {
-    yield axios.delete(`/tasks/${remove.payload}`);
+    yield axios.delete(`/tasks/delete/${remove.payload}`);
     yield put({ type: "FETCH_TASK_1"});
   } catch (error) {
     console.log("Error deleting", error);
   }
 }
-// // Update task status on chart and user-tasks table
-// function* updateTaskStatus(update){
-//   console.log('in updateTaskStatus', update.payload);
-//   try{
-//     yield axios.put(`/tasks/'${}`)
-//     ({type:"SET_TASK_1" })
-//   }
-// }
 
-
-//Allow deletion of task from child's task table
+//PUT: Update task status on active chart
+function* updateTaskStatus(update){
+  console.log('in updateTask of tasks saga', update.payload);
+  try{
+    yield axios.put(`tasks/update/${update.childId}`, update.payload);
+    yield put({type:"FETCH_TASK_1" })
+  }catch(error){
+    console.log('Error updating task status', error);
+  }
+}
 
 
 
 // Create the rootSaga generator function
 function* tasksSaga() {
-    //Get tasks to display in dropdown
+    //Get tasks to display from DB in dropdown
     yield takeLatest('SET_TASK_1', getTasks);
-     //Post selected tasks to user_table
+    //Post selected tasks DB
     yield takeLatest('SET_SELECTED_TASK', postTasks);
-    //Get tasks to post to child table
+    //Get tasks to post to active child table
     yield takeLatest('FETCH_TASK_1', getSelectedTasks);
-    //Get tasks to delete from child table
+    //Get tasks to delete from active child table
     yield takeLatest('REMOVE_TASK', deleteTasks);
+    //Get tasks to delete from child table
+    yield takeLatest('CHANGE_TASK_STATUS', updateTaskStatus);
  }
 
 

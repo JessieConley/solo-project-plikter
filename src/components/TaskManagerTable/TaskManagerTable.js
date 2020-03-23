@@ -51,6 +51,13 @@ class TaskManagerTable extends Component {
     this.props.dispatch({type: "REMOVE_TASK", payload: remove})
   };
 
+  //Update task status
+  updateTaskStatus = (update) => {
+    console.log('in updateTaskStatus', update);
+    this.props.dispatch({type: "CHANGE_TASK_STATUS", payload: update})
+    
+  };
+
   //Function to advance user to Add New Task page
   //   addNewTaskClick = () => {
   //     this.props.history.push("/add-new-task");
@@ -68,10 +75,7 @@ class TaskManagerTable extends Component {
             {this.props.tasks.length > 0 && (
               <>
                 <label htmlFor="Tasks">Select Task:</label>
-                <select
-                  name="taskSelect"
-                  onChange={this.handleAddTask("taskId")}
-                >
+                <select onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (
                       <option key={taskNames.id} value={taskNames.id}>
@@ -111,42 +115,49 @@ class TaskManagerTable extends Component {
 
         <div>
           <>
-            <table>
-              <thead>
-                <tr>
-                  <th>Task:</th>
-                  <th>Day Due:</th>
-                  <th>Status:</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.props.childTable.length > 0 && (
-                  <>
-                    {this.props.childTable.map(taskNames => {
-                      return (
-                        <tr>
-                          <td key={taskNames.id} value={taskNames.id}>
-                            {taskNames.task_name}
-                          </td>
-                          <td>Monday</td>
-                          <td>
-                            <button>
-                              {taskNames.complete ? "Complete" : "Incomplete"}
-                            </button>
-                          </td>
-                          <td>
-                            <button onClick={() => this.deleteTask(taskNames.id)}>
-                              Delete
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </>
-                )}
-              </tbody>
-            </table>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Task:</th>
+                    <th>Day Due:</th>
+                    <th>Status:</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.props.childTable.length > 0 && (
+                    <>
+                      {this.props.childTable.map(taskNames => {
+                        return (
+                          <tr>
+                            <td key={taskNames.id} value={taskNames.id}>
+                              {taskNames.task_name}
+                            </td>
+                            <td>Monday</td>
+                            <td>
+                              <button
+                                onClick={() =>
+                                  this.updateTaskStatus(taskNames.id)
+                                }
+                              >
+                                {taskNames.complete ? "Complete" : "Incomplete"}
+                              </button>
+                            </td>
+                            <td>
+                              <button
+                                onClick={() => this.deleteTask(taskNames.id)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </>
+                  )}
+                </tbody>
+              </table>
+            
           </>
         </div>
         <div>
