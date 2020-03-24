@@ -6,7 +6,8 @@ class TaskManagerTable extends Component {
   state = {
     taskId: "",
     taskStatus: false,
-    
+    taskDue: ""
+
     // value: 'Monday'
   };
 
@@ -14,7 +15,6 @@ class TaskManagerTable extends Component {
     // console.log("in component did mount");
     this.props.dispatch({ type: "SET_TASK_1" });
     this.displaySelectedTasks();
-
   };
 
   // Add selected task to user_task db
@@ -28,22 +28,27 @@ class TaskManagerTable extends Component {
           userId: this.props.user.id,
           childId: this.props.activeChild.id,
           taskId: this.state.taskId,
-          taskStatus: this.state.taskStatus
+          taskStatus: this.state.taskStatus,
+          taskDue: this.state.taskDue
         }
       });
     } else {
-      console.log('in addTask else block');
+      console.log("in addTask else block");
       this.props.dispatch({ type: "ADD_TASK_INPUT_ERROR" });
     }
   }; // end addTask
 
   displaySelectedTasks = () => {
     console.log("in displaySelectedTasks");
-    this.props.dispatch({ type: "FETCH_TASK_1", childId: this.props.activeChild.id});
+    this.props.dispatch({
+      type: "FETCH_TASK_1",
+      childId: this.props.activeChild.id,
+      taskDue: this.state.taskDue
+    });
   };
 
   handleAddTask = propertyName => event => {
-    console.log( 'in handleAddTask', propertyName, event);
+    console.log("in handleAddTask", propertyName, event);
     this.setState({
       [propertyName]: event.target.value
     });
@@ -51,36 +56,47 @@ class TaskManagerTable extends Component {
 
   //Delete task from table
   deleteTask = (remove, childId) => {
-    console.log('in deleteTask', remove);
-    this.props.dispatch({type: "REMOVE_TASK", payload: remove, childId});
+    console.log("in deleteTask", remove);
+    this.props.dispatch({ type: "REMOVE_TASK", payload: remove, childId });
     // this.displaySelectedTasks();
   };
 
   //Update task status
   updateTaskStatus = (update, childId, complete) => {
-    console.log('in updateTaskStatus', update);
-    this.props.dispatch({type: "CHANGE_TASK_STATUS", payload: update, childId, complete})
-    
+    console.log("in updateTaskStatus", update);
+    this.props.dispatch({
+      type: "CHANGE_TASK_STATUS",
+      payload: update,
+      childId,
+      complete
+    });
   };
 
-  //Function to advance user to Add New Task page
-  //   addNewTaskClick = () => {
-  //     this.props.history.push("/add-new-task");
-  //   };
+  //Function to take user back to user home
+    backToUserPage = () => {
+      this.props.history.push("/home");
+    };
+
+  // Function to advance user to Add New Task page
+    // addNewTaskClick = () => {
+    //   this.props.history.push("/add-new-task");
+    // };
 
   render() {
-  console.log("in task component with", this.props.activeChild);
+    console.log("in task component with", this.props.activeChild);
     return (
       <div className="TaskManagerTable">
-        <h2 id="welcome">{this.props.activeChild.name}'s Responsibility Chart</h2>
-        <h2>Select Tasks and Due Date</h2>
+        <h2 id="welcome">
+          {this.props.activeChild.name}'s Responsibility Chart
+        </h2>
+        <h2>
+          What are {this.props.activeChild.name}'s responsibilities for today?
+        </h2>
         <form onSubmit={this.addTask}>
-          {/* <p>Task Selection:</p> */}
-
           <div>
             {this.props.tasks.length > 0 && (
               <>
-                <label htmlFor="Tasks">Select Task:</label>
+                <label htmlFor="Tasks">Select Responsibility:</label>
                 <select onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (
@@ -95,18 +111,11 @@ class TaskManagerTable extends Component {
           </div>
           <br></br>
 
-          {/* <p>Due Date:</p>
-          <select
-            value={this.state.value}
-            name="daySelect"
-            onChange={this.handleAddTask("daySelect")}
-          >
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-          </select> */}
+          <p>When should these responsibilities be done?</p>
+          <input
+            placeholder="daySelect"
+            onChange={event => this.handleAddTask(event, "taskDue")}
+          />
 
           <input
             className="addTask"
@@ -121,9 +130,9 @@ class TaskManagerTable extends Component {
             <table>
               <thead>
                 <tr>
-                  <th>Task:</th>
-                  {/* <th>Day Due:</th> */}
-                  <th>Status:</th>
+                  <th>Responsibility Name:</th>
+                  <th>Complete Responsibility By:</th>
+                  <th>Responsibility Status:</th>
                   <th>Delete</th>
                 </tr>
               </thead>
@@ -173,6 +182,11 @@ class TaskManagerTable extends Component {
           <br></br>
           <br></br>
         </div>
+        <div>
+          <button onClick={this.backToUserPage}>Back</button>
+        </div>
+        <br></br>
+        <br></br>
         <div>
           <button>Create New Tasks</button>
         </div>

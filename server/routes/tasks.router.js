@@ -45,9 +45,10 @@ router.post('/table', (req, res, next) => {
   const childId = req.body.childId;
   const taskId = req.body.taskId;
   const taskStatus = req.body.taskStatus;
-  const queryText = `INSERT INTO "user_tasks" ("user_id", "child_id", "task_id", "complete" ) VALUES ($1, $2, $3, $4);`;
+  const taskDue = req.body.taskDue
+  const queryText = `INSERT INTO "user_tasks" ("user_id", "child_id", "task_id", "complete", "due_date" ) VALUES ($1, $2, $3, $4, $5);`;
   pool
-    .query(queryText, [userId, childId, taskId, taskStatus])
+    .query(queryText, [userId, childId, taskId, taskStatus, taskDue])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 })
