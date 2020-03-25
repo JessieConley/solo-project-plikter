@@ -38,7 +38,7 @@ class UserPage extends Component {
       <div>
         <h1 id="welcome">Welcome, {this.props.user.name}!</h1>
         <h2>Who's responsibility chart are we working with today?</h2>
-        {/* <div>{this.props.child.length}>Hello</div> */}
+       
         
           <div className="childDisplay">
             <center>

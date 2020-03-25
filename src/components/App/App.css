@@ -1,6 +1,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background-image: url("/..../../../images/solo_app_background_image.png");
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed; 
 }
 
 .alert {
@@ -9,7 +14,7 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: #dfbf9f;
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -23,7 +28,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #33cc33;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -32,7 +37,10 @@ input {
   cursor: pointer;
 }
 
-.log-in:hover, .log-out:hover, .register:hover {
+.log-in:hover{
+    background-color:#248f24;
+}
+.log-out:hover, .register:hover {
   background-color: #008183;
 }
 

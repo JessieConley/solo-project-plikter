@@ -7,8 +7,6 @@ class TaskManagerTable extends Component {
     taskId: "",
     taskStatus: false,
     taskDue: ""
-
-    // value: 'Monday'
   };
 
   componentDidMount = () => {
@@ -43,7 +41,6 @@ class TaskManagerTable extends Component {
     this.props.dispatch({
       type: "FETCH_TASK_1",
       childId: this.props.activeChild.id,
-      taskDue: this.state.taskDue
     });
   };
 
@@ -53,6 +50,13 @@ class TaskManagerTable extends Component {
       [propertyName]: event.target.value
     });
   };
+
+  handleAddDueDate = (inputText, event) => {
+    console.log("in handleDueDate", inputText, event);
+    this.setState({
+      inputText: event.target.value
+    });
+  }
 
   //Delete task from table
   deleteTask = (remove, childId) => {
@@ -114,7 +118,7 @@ class TaskManagerTable extends Component {
           <p>When should these responsibilities be done?</p>
           <input
             placeholder="daySelect"
-            onChange={event => this.handleAddTask(event, "taskDue")}
+            onChange={event => this.handleAddDueDate("taskDue", event)}
           />
 
           <input

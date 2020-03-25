@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import "./LoginPage.css";
 
 class LoginPage extends Component {
   state = {
@@ -33,10 +34,7 @@ class LoginPage extends Component {
     return (
       <div>
         {this.props.errors.loginMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
+          <h2 className="alert" role="alert">
             {this.props.errors.loginMessage}
           </h2>
         )}
@@ -49,7 +47,7 @@ class LoginPage extends Component {
                 type="text"
                 name="username"
                 value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                onChange={this.handleInputChangeFor("username")}
               />
             </label>
           </div>
@@ -60,7 +58,7 @@ class LoginPage extends Component {
                 type="password"
                 name="password"
                 value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
+                onChange={this.handleInputChangeFor("password")}
               />
             </label>
           </div>
@@ -73,16 +71,21 @@ class LoginPage extends Component {
             />
           </div>
         </form>
-        <center>
-          <p>New user?</p>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Sign Up
-          </button>
-        </center>
+        <div className="newUser">
+          <center>
+            <p>New user?</p>
+            <button
+              className="signUpButton"
+              type="button"
+              // className="link-button"
+              onClick={() => {
+                this.props.dispatch({ type: "SET_TO_REGISTER_MODE" });
+              }}
+            >
+              Sign Up
+            </button>
+          </center>
+        </div>
       </div>
     );
   }
