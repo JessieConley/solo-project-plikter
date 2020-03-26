@@ -6,16 +6,16 @@ class TaskManagerTable extends Component {
   state = {
     taskId: "",
     taskStatus: false,
-    taskDue: ""
+    // taskDue: ""
   };
-
+//Fires on page load
   componentDidMount = () => {
     // console.log("in component did mount");
     this.props.dispatch({ type: "SET_TASK_1" });
     this.displaySelectedTasks();
   };
 
-  // Add selected task to user_task db
+  // Add selected task to user_task db table for childId
   addTask = event => {
     console.log("in addTask", this.props.activeChild);
     event.preventDefault();
@@ -36,6 +36,7 @@ class TaskManagerTable extends Component {
     }
   }; // end addTask
 
+  //Display selected task in Child's Responsibility Chart table as tasks are selected
   displaySelectedTasks = () => {
     console.log("in displaySelectedTasks");
     this.props.dispatch({
@@ -44,6 +45,7 @@ class TaskManagerTable extends Component {
     });
   };
 
+  //Capture task name selection from dropdown to display on dom after adding to child's chart
   handleAddTask = propertyName => event => {
     console.log("in handleAddTask", propertyName, event);
     this.setState({
@@ -51,12 +53,12 @@ class TaskManagerTable extends Component {
     });
   };
 
-  handleAddDueDate = (inputText, event) => {
-    console.log("in handleDueDate", inputText, event);
-    this.setState({
-      inputText: event.target.value
-    });
-  }
+  // handleAddDueDate = (inputText, event) => {
+  //   console.log("in handleDueDate", inputText, event);
+  //   this.setState({
+  //     inputText: event.target.value
+  //   });
+  // }
 
   //Delete task from table
   deleteTask = (remove, childId) => {
@@ -65,7 +67,7 @@ class TaskManagerTable extends Component {
     // this.displaySelectedTasks();
   };
 
-  //Update task status
+  //Update task status to complete once completed
   updateTaskStatus = (update, childId, complete) => {
     console.log("in updateTaskStatus", update);
     this.props.dispatch({
@@ -135,7 +137,7 @@ class TaskManagerTable extends Component {
               <thead>
                 <tr>
                   <th>Responsibility Name:</th>
-                  <th>Complete Responsibility By:</th>
+                  {/* <th>Complete Responsibility By:</th> */}
                   <th>Responsibility Status:</th>
                   <th>Delete</th>
                 </tr>
@@ -149,7 +151,7 @@ class TaskManagerTable extends Component {
                           <td key={taskNames.id} value={taskNames.id}>
                             {taskNames.task_name}
                           </td>
-                          {/* <td>Monday</td> */}
+                       
                           <td>
                             <button
                               onClick={() =>

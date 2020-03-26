@@ -6,7 +6,7 @@ const userStrategy = require("../strategies/user.strategy");
 
 const router = express.Router();
 
-// Handles Ajax GET request to get tasks for select dropdown
+// Handles Ajax GET request to get tasks for select task dropdown
 router.get('/', (req, res) => {
   console.log("in tasks router GET", req.body);
   const queryText = 'SELECT * from "tasks";';
@@ -54,7 +54,7 @@ router.post('/table', (req, res, next) => {
 })
 
 
-//Handles Ajax PUT to update task status on chart and user-tasks table
+//Handles Ajax PUT to update task status on Responsibility Chart for child on DOM and user-tasks table on server
 router.put('/update/:id', (req,res) => {
   console.log('in task PUT router with', req.body.taskStatus);
   const taskId = req.params.id;
@@ -69,7 +69,7 @@ router.put('/update/:id', (req,res) => {
   })
 })
 
-// Handles Ajax Delete to delete task from chart and user-tasks table
+// Handles Ajax Delete to delete task from Responsibility Chart for child on DOM and user-tasks table on server
 router.delete('/delete/:id', (req, res) => {
   console.log("in router.delete /:id", req.params.id);
   queryText = `DELETE FROM "user_tasks" WHERE "id" = ${req.params.id};`;

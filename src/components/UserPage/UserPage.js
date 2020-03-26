@@ -27,7 +27,7 @@ class UserPage extends Component {
 
     this.props.history.push("/task-manager-table");
   }
-
+//Advances user to Add Child form page upon click
   toAddChildForm = (event) => {
     this.props.history.push("/add-child-form");
   };

@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 class RegisterPage extends Component {
   state = {
     childName: "",
-    dateOfBirth: "",
-    
+    dateOfBirth: ""
   };
 
-  //Add child to user account
+  //Add child to user account and db
   addChild = event => {
     event.preventDefault();
     if (this.state.childName && this.state.dateOfBirth) {
@@ -23,14 +22,14 @@ class RegisterPage extends Component {
     } else {
       this.props.dispatch({ type: "ADD_CHILD_INPUT_ERROR" });
     }
-    this.props.history.push('/add-child-confirmation');
+    this.props.history.push("/add-child-confirmation");
   }; // end addChild
 
   handleInputChangeFor = propertyName => event => {
     this.setState({
       [propertyName]: event.target.value
     });
-  };
+  }; //end handleInputChangeFor
 
   render() {
     return (
@@ -75,7 +74,6 @@ class RegisterPage extends Component {
             </center>
           </div>
         </form>
-
       </div>
     );
   }

@@ -7,7 +7,8 @@ class RegisterPage extends Component {
     username: '',
     password: ''
     }
-    
+  
+  //Create new user account upon registration
   registerUser = (event) => {
     event.preventDefault();
     if (this.state.name && this.state.username && this.state.password) {
@@ -24,6 +25,7 @@ class RegisterPage extends Component {
     }
   } // end registerUser
 
+  //Takes in new user account creds on entry
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,

@@ -47,7 +47,8 @@ CREATE TABLE "user_tasks"
     "user_id" INT References "user",
     "child_id" INT References "children",
     "task_id" INT References "tasks",
-    "complete" boolean
+    "complete" boolean,
+    "due_date" varchar
 );
 
 

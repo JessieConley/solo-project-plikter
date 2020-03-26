@@ -8,9 +8,10 @@ class LoginPage extends Component {
     password: '',
   };
 
+  //Login an existing user
   login = (event) => {
     event.preventDefault();
-    console.log("in registerUser with:", this.state);
+    console.log("in loginUser with:", this.state);
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
@@ -23,6 +24,8 @@ class LoginPage extends Component {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   } // end login
+
+  //Takes in username and password to get to user account
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
