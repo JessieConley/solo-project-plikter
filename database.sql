@@ -29,7 +29,6 @@ CREATE TABLE "tasks"
 INSERT INTO "tasks"
     ("task_name", "level")
 VALUES
-    ('Put Toys Away', 1),
     ('Make Bed', 2),
     ('Clean Up Room', 1),
     ('Help with Outdoor Chores', 4),
@@ -39,7 +38,8 @@ VALUES
     ('Share', 1),
     ('Show Respect', 2),
     ('Say Please and Thank You', 1),
-    ('No Whining', 1);
+    ('No Whining', 1), 
+    ('Put Toys Away', 1);
 
 CREATE TABLE "user_tasks"
 (

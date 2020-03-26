@@ -46,9 +46,17 @@ class App extends Component {
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <ProtectedRoute exact path="/home" component={UserPage} />
             <Route exact path="/add-child-form" component={AddChildForm} />
-            <Route exact path="/add-child-confirmation" component={AddChildConfirmation}/>
-            <Route exact path="/task-manager-table" component={TaskManagerTable} />
-            
+            <Route
+              exact
+              path="/add-child-confirmation"
+              component={AddChildConfirmation}
+            />
+            <ProtectedRoute
+              exact
+              path="/task-manager-table"
+              component={TaskManagerTable}
+            />
+
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

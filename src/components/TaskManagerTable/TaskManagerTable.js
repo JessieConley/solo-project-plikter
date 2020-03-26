@@ -27,7 +27,7 @@ class TaskManagerTable extends Component {
           childId: this.props.activeChild.id,
           taskId: this.state.taskId,
           taskStatus: this.state.taskStatus,
-          taskDue: this.state.taskDue
+          // taskDue: this.state.taskDue
         }
       });
     } else {
@@ -117,11 +117,11 @@ class TaskManagerTable extends Component {
           </div>
           <br></br>
 
-          <p>When should these responsibilities be done?</p>
+          {/* <p>When should these responsibilities be done?</p>
           <input
             placeholder="daySelect"
             onChange={event => this.handleAddDueDate("taskDue", event)}
-          />
+          /> */}
 
           <input
             className="addTask"
@@ -151,7 +151,7 @@ class TaskManagerTable extends Component {
                           <td key={taskNames.id} value={taskNames.id}>
                             {taskNames.task_name}
                           </td>
-                       
+
                           <td>
                             <button
                               onClick={() =>
@@ -189,13 +189,15 @@ class TaskManagerTable extends Component {
           <br></br>
         </div>
         <div>
-          <button onClick={this.backToUserPage}>Back</button>
+          <center>
+            <button onClick={this.backToUserPage}>Back</button>
+          </center>
         </div>
         <br></br>
         <br></br>
-        <div>
+        {/* <div>
           <button>Create New Tasks</button>
-        </div>
+        </div> */}
       </div>
     );
   }

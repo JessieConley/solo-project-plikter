@@ -54,7 +54,7 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="dateOfBirth">
-              Username:
+              Date of Birth:
               <input
                 type="date"
                 name="dateOfBirth"
@@ -69,7 +69,7 @@ class RegisterPage extends Component {
                 className="addChild"
                 type="submit"
                 name="submit"
-                value="Add Child"
+                value="Save"
               />
             </center>
           </div>
@@ -84,7 +84,9 @@ class RegisterPage extends Component {
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
-  user: state.user 
+  user: state.user,
+  childTable: state.tasksTableReducer,
+  activeChild: state.activeChildReducer
 });
 
 export default connect(mapStateToProps)(RegisterPage);

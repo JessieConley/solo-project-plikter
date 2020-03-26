@@ -1,4 +1,11 @@
-# Prime Project
+# Project Name
+Plikter Responsibility and Behavior Application
+
+## Description
+Plikter Responsibility and Behavior is a task manager application that parents can use with their children to set daily responsibility and behavior expectations for each child within the family. Users can set up a responsibility chart for each child in their houshold and select tasks and behavios appropriate for the child's age. As the day goes on, users can mark the responsibility or behvior as complete or incomplete, delete from the child's chart, or update with additional daily expecations as needed. 
+
+
+# Prime Solo Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
@@ -17,19 +24,59 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
+## Create database and tables
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `plikter_solo_app` and create the following tables:
 
 ```SQL
-CREATE TABLE "user" (
+CREATE TABLE "user"
+(
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "name" varchar (100) not null,
+    "username" varchar (80) unique not null,
+    "password" varchar (1000) not null
 );
-```
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+CREATE TABLE "children"
+(
+    "id" SERIAL PRIMARY KEY,
+    "child_name" varchar (100) not null,
+    "date_of_birth" date not null
+);
+
+CREATE TABLE "tasks"
+(
+    "id" SERIAL PRIMARY KEY,
+    "task_name" varchar,
+    "account_user_id" INT References "user"
+);
+
+INSERT INTO "tasks"
+    ("task_name")
+VALUES
+    ('Make Bed'),
+    ('Clean Up Room'),
+    ('Help with Outdoor Chores'),
+    ('Fold Laundry and Put Away'),
+    ('Help with Indoor Chores'),
+    ('Keep Hands To Yourself'),
+    ('Share'),
+    ('Show Respect'),
+    ('Say Please and Thank You'),
+    ('No Whining'), 
+    ('Put Toys Away');
+
+CREATE TABLE "user_tasks"
+(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT References "user",
+    "child_id" INT References "children",
+    "task_id" INT References "tasks",
+    "complete" boolean,
+    "due_date" varchar
+);
+
+
 
 ## Development Setup Instructions
 
@@ -44,6 +91,18 @@ If you would like to name your database something else, you will need to change 
 * Run `npm run client`
 * Navigate to `localhost:3000`
 
+## How to Use Application
+-- From the home page, a user can sign up to create a new Parent/Guardian account
+-- Once the user account has been created, the user will advance directly to their user account home page where they can start to add the names of the children they will be working with on responsibilities and behavior by selecting the 'Add Child' button
+-- By clicking the 'Add Child' button, the user will be directed to a form page to add the  name of the child and their date of birth. Click the 'Save' button to save this information to the user account and direct to a confirmation page. 
+-- After receiving confirmation that the child has been added, the user can click back to their user account page by clicking the 'Home' button
+-- Once arriving back on the user Home page, the child name will be displayed. The user can click on their child/s name button to be directed to start creating a responsibility and behavior chart and managing tasks for this child. 
+
+
+* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
+* Unzip the project and start with the code in that folder.
+* Create a new GitHub project and push this code to the new repository.
+## 
 ## Debugging
 
 To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
