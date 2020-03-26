@@ -41,8 +41,8 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
-          <h2>Parent/Guardian Login</h2>
+        <form className="parentLogin" onSubmit={this.login}>
+          <h2 className="parentHeader">Parent/Guardian Login</h2>
           <div>
             <label htmlFor="username">
               Username:
@@ -65,13 +65,15 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
+          <div className="loginButton">
+            <center>
+              <input
+                className="log-in"
+                type="submit"
+                name="submit"
+                value="Log In"
+              />
+            </center>
           </div>
         </form>
         <div className="newUser">

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import "./UserPage.css";
 
 // import LogOutButton from '../LogOutButton/LogOutButton';
 
@@ -46,7 +47,7 @@ class UserPage extends Component {
               this.props.child.map(name => {
                 // <div className="buttonDisplay" >
                 return (
-                  <button data-id={name.id} data-name={name.child_name} onClick={this.onChildButtonClick}>
+                  <button className="childNameButton" data-id={name.id} data-name={name.child_name} onClick={this.onChildButtonClick}>
                     {name.child_name}
                   </button>
                 );
@@ -58,7 +59,7 @@ class UserPage extends Component {
             
           </div>
         <center>
-          <button onClick={this.toAddChildForm}>Add Child</button>
+          <button className="addChildButton" onClick={this.toAddChildForm}>Add Child</button>
         </center>
       </div>
     );

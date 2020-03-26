@@ -7,6 +7,31 @@
     border-radius: 2px;
   }
 
-  /* .signUpButton {
-      background-color: ;
-  } */
+  .signUpButton {
+  background-color:  #efebdc;
+  border-radius: 30px;
+  border-color: #29a3a3;
+  color: #29a3a3;
+  min-height: 30px;
+  min-width: 120px;
+  outline:0;
+  cursor: pointer;
+  font-size: small;
+  }
+
+  .signUpButton:hover{
+    background-color:#29a3a3;
+    color: #efebdc;
+}
+.signUpButton :hover {
+  background-color: #008183;
+}
+
+.parentHeader{
+    border-radius: 8px;
+    margin: 12px;
+    background-color: #efebdc;
+    color: #e6005c   
+}
+
+/* Login Form */

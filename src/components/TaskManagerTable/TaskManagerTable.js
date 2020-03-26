@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import "./TaskManagerTable.css";
 
 class TaskManagerTable extends Component {
   state = {
@@ -95,9 +95,11 @@ class TaskManagerTable extends Component {
         <h2 id="welcome">
           {this.props.activeChild.name}'s Responsibility Chart
         </h2>
-        <h2>
-          What are {this.props.activeChild.name}'s responsibilities for today?
-        </h2>
+        <center>
+          <h2>
+            What are {this.props.activeChild.name}'s responsibilities for today?
+          </h2>
+        </center>
         <form onSubmit={this.addTask}>
           <div>
             {this.props.tasks.length > 0 && (
