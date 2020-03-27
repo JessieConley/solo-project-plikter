@@ -1,8 +1,76 @@
 table {
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 1px solid #405AB9;
+  width: 50%;
+  object-position: center;
+  box-shadow: 1px 1px 2px #D1B7A5;
+  margin-left: 25%;
+  background-color: #efebdc;
 } 
 
-th,td {
-  border: 1px solid black;
+th {
+  border: 3px solid #405AB9;
+  background-color:#405AB9;
+  color: white;
+  text-shadow: .5px .5px .5px #333;
+  text-align: left;
+  font-weight: bolder;
+}
+
+td{
+     background-color: #efebdc;
+     color: #405AB9;
+     border: 3px solid #405AB9;
+}
+.chartNameHeader{
+    color:#29a3a3;
+    text-shadow: .1px .1px .1px #333;
+    padding-left: 5px; 
+   
+}
+
+.formheader{
+    background-color:#405AB9;
+    height: 25px;
+    padding:10px;
+    /* border-radius: 0.25em; */
+   box-shadow: 2px 2px 2px 2px #D1B7A5;
+   color: white;
+   text-shadow: .5px .5px .5px #333;
+
+}
+
+
+.addTask{
+  
+  background-color:  #29a3a3;
+  border-radius: 30px;
+  border-color: #29a3a3;
+  color: #efebdc;
+  min-height: 30px;
+  min-width: 120px;
+  outline:0;
+  cursor: pointer;
+  font-size: small;
+}
+
+
+.addTask:hover{
+    background-color:#29a3a3;
+    color: #efebdc;
+}
+.addTask:hover{
+  background-color: #008183;
+}
+
+.backButton{
+ background-color:  #29a3a3;
+  border-radius: 30px;
+  border-color: #29a3a3;
+  color: #efebdc;
+  min-height: 30px;
+  min-width: 100px;
+  outline:0;
+  cursor: pointer;
+  font-size: small;
 }

@@ -6,11 +6,10 @@ class TaskManagerTable extends Component {
   state = {
     taskId: "",
     taskStatus: false,
-    // taskDue: ""
+ 
   };
 //Fires on page load
   componentDidMount = () => {
-    // console.log("in component did mount");
     this.props.dispatch({ type: "SET_TASK_1" });
     this.displaySelectedTasks();
   };
@@ -27,7 +26,6 @@ class TaskManagerTable extends Component {
           childId: this.props.activeChild.id,
           taskId: this.state.taskId,
           taskStatus: this.state.taskStatus,
-          // taskDue: this.state.taskDue
         }
       });
     } else {
@@ -92,13 +90,13 @@ class TaskManagerTable extends Component {
     console.log("in task component with", this.props.activeChild);
     return (
       <div className="TaskManagerTable">
-        <h2 id="welcome">
+        <h2 className="chartNameHeader">
           {this.props.activeChild.name}'s Responsibility Chart
         </h2>
         <center>
-          <h2>
+          <h3 className="formheader">
             What are {this.props.activeChild.name}'s responsibilities for today?
-          </h2>
+          </h3>
         </center>
         <form onSubmit={this.addTask}>
           <div>
@@ -108,7 +106,7 @@ class TaskManagerTable extends Component {
                 <select onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (
-                      <option key={taskNames.id} value={taskNames.id}>
+                      <option className="formOption" key={taskNames.id} value={taskNames.id}>
                         {taskNames.task_name}
                       </option>
                     );
@@ -192,7 +190,7 @@ class TaskManagerTable extends Component {
         </div>
         <div>
           <center>
-            <button onClick={this.backToUserPage}>Back</button>
+            <button className="backButton" onClick={this.backToUserPage}>Back</button>
           </center>
         </div>
         <br></br>
