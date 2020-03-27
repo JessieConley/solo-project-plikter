@@ -10,7 +10,6 @@
   .signUpButton {
   background-color:  #379935;
   border-radius: 30px;
-  
   color: #efebdc;
   min-height: 30px;
   min-width: 120px;
@@ -35,14 +34,9 @@
 }
 
 /* Login Form */
-/* #formLogin {
-    background-color: #dfbf9f;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 2px;
-    min-width: 200px;
-    max-width: 400px;
-    display: flex; 
-    flex-direction: column;
+form{
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
 
-} */
+}

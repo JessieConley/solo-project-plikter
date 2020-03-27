@@ -37,7 +37,7 @@ class UserPage extends Component {
     console.log('in user page with:', this.props.child);
     return (
       <div>
-        <h1 className="welcome">Welcome, {this.props.user.name}!</h1>
+        <h1 className="welcome">Hello, {this.props.user.name}!</h1>
         <div className="responsibilityHeader">
           <center>
             <h2>Who's responsibility chart are we working with today?</h2>

@@ -2,11 +2,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
     background-color: #F7F5ED;
-    /* background-image: url("/..../../../images/solo_app_background_image.png");
-    background-position: center center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-attachment: fixed;  */
 }
 
 .alert {
