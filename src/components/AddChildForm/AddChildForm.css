@@ -1,0 +1,24 @@
+.childNameEntry{
+    color: #29a3a3;
+}
+
+.addChildButton {
+  background-color:  #29a3a3;
+  border-radius: 30px;
+  border-color: #29a3a3;
+  color: #efebdc;
+  min-height: 30px;
+  min-width: 120px;
+  outline:0;
+  cursor: pointer;
+  font-size: medium;
+}
+
+
+.addChildButton:hover{
+    background-color:#29a3a3;
+    color: #efebdc;
+}
+.addChildButton:hover, .register:hover {
+  background-color: #008183;
+}

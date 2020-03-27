@@ -1,5 +1,5 @@
   .newUser {
-    background-color: #FFD816;
+    
     width: 30%;
     height: 75px;
     margin: 20px auto;
@@ -8,10 +8,10 @@
   }
 
   .signUpButton {
-  background-color:  #efebdc;
+  background-color:  #379935;
   border-radius: 30px;
-  border-color: #29a3a3;
-  color: #29a3a3;
+  
+  color: #efebdc;
   min-height: 30px;
   min-width: 120px;
   outline:0;
@@ -20,18 +20,29 @@
   }
 
   .signUpButton:hover{
-    background-color:#29a3a3;
-    color: #efebdc;
+    background-color: #efebdc;
+    color: #379935;
 }
 .signUpButton :hover {
-  background-color: #008183;
+  background-color: #efebdc;
 }
 
 .parentHeader{
-    border-radius: 8px;
+    /* border-radius: 8px;
     margin: 12px;
-    background-color: #efebdc;
-    color: #e6005c   
+    background-color: #efebdc; */
+    color: #29a3a3;   
 }
 
 /* Login Form */
+/* #formLogin {
+    background-color: #dfbf9f;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 2px;
+    min-width: 200px;
+    max-width: 400px;
+    display: flex; 
+    flex-direction: column;
+
+} */

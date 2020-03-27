@@ -15,30 +15,35 @@ body {
 }
 
 form {
-    background-color: #dfbf9f;
-    width: 30%;
-    height: 250px;
+    background-color: #efebdc;
+    width: 50%;
+    /* height: 250px; */
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+    min-width: 200px;
+    max-width: 400px;
+    flex-direction: row;
+
 }
 
 input {
-    margin: 5px;
+    margin: 10px;
     margin-bottom: 10px;
 }
 
 .log-in, .log-out, .register {
-  background-color:  #efebdc;
+  background-color:  #29a3a3;
   border-radius: 30px;
   border-color: #29a3a3;
-  color: #29a3a3;
+  color: #efebdc;
   min-height: 30px;
   min-width: 120px;
   outline:0;
   cursor: pointer;
   font-size: medium;
 }
+
 
 .log-in:hover{
     background-color:#29a3a3;

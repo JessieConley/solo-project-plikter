@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddChildConfirmation.css";
 
 
 class AddChildConfirmation extends Component {
@@ -9,9 +10,11 @@ class AddChildConfirmation extends Component {
   render() {
     return (
       <div className="AddChildConfirmation">
-        <h1>Thank You!</h1>
-        <h2>This child has been added to your account.</h2>
-        <button onClick={this.buttonClick}>Home</button>
+        <center>
+          <h1 className="thankYou">Thank You!</h1>
+          <h2>This child has been added to your account.</h2>
+          <button className="backHomeButton" onClick={this.buttonClick}>Home</button>
+        </center>
       </div>
     );
   }

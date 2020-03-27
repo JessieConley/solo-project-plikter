@@ -37,29 +37,38 @@ class UserPage extends Component {
     console.log('in user page with:', this.props.child);
     return (
       <div>
-        <h1 id="welcome">Welcome, {this.props.user.name}!</h1>
-        <h2>Who's responsibility chart are we working with today?</h2>
-       
-        
-          <div className="childDisplay">
-            <center>
-              {this.props.child.length > 0 && 
+        <h1 className="welcome">Welcome, {this.props.user.name}!</h1>
+        <div className="responsibilityHeader">
+          <center>
+            <h2>Who's responsibility chart are we working with today?</h2>
+          </center>
+        </div>
+
+        <div className="childDisplay">
+          <center>
+            {this.props.child.length > 0 &&
               this.props.child.map(name => {
                 // <div className="buttonDisplay" >
                 return (
-                  <button className="childNameButton" data-id={name.id} data-name={name.child_name} onClick={this.onChildButtonClick}>
+                  <button
+                    className="childNameButton"
+                    data-id={name.id}
+                    data-name={name.child_name}
+                    onClick={this.onChildButtonClick}
+                  >
                     {name.child_name}
                   </button>
                 );
-                // </div>; 
+                // </div>;
               })}
-              <br></br>
-              <br></br>
-            </center>
-            
-          </div>
+            <br></br>
+            <br></br>
+          </center>
+        </div>
         <center>
-          <button className="addChildButton" onClick={this.toAddChildForm}>Add Child</button>
+          <button className="addChildButton" onClick={this.toAddChildForm}>
+            Add Child
+          </button>
         </center>
       </div>
     );

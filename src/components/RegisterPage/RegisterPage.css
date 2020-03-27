@@ -1,0 +1,35 @@
+   .registerForm {
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 2px;
+    width: 50%;
+    min-width: 200px;
+    max-width: 400px;
+    
+   
+   }
+
+   .registerH2{
+      color: #29a3a3;
+   }
+
+   .logInButton{
+  background-color:  #379935;
+  border-radius: 30px;
+  color: #efebdc;
+  min-height: 30px;
+  min-width: 120px;
+  outline:0;
+  cursor: pointer;
+  font-size: small;
+  }
+
+.logInButton:hover{
+    background-color: #efebdc;
+    color: #379935;
+}
+
+.logInButton:hover {
+  background-color: #efebdc;
+} 
+   

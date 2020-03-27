@@ -41,30 +41,33 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form className="parentLogin" onSubmit={this.login}>
-          <h2 className="parentHeader">Parent/Guardian Login</h2>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor("username")}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor("password")}
-              />
-            </label>
-          </div>
+
+        <form onSubmit={this.login}>
+          <center>
+            <h2 className="parentHeader">Parent/Guardian Login</h2>
+            <div>
+              <label htmlFor="username">
+                Username:
+                <input
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleInputChangeFor("username")}
+                />
+              </label>
+            </div>
+            <div>
+              <label htmlFor="password">
+                Password:
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor("password")}
+                />
+              </label>
+            </div>
+          </center>
           <div className="loginButton">
             <center>
               <input
@@ -76,6 +79,7 @@ class LoginPage extends Component {
             </center>
           </div>
         </form>
+
         <div className="newUser">
           <center>
             <p>New user?</p>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./AddChildForm.css";
 
 class RegisterPage extends Component {
   state = {
@@ -40,10 +41,10 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.addChild}>
-          <h1>Add New Child</h1>
+          <h1 className="childNameEntry">Add New Child</h1>
           <div>
             <label htmlFor="childName">
-              Name:
+              Child Name:
               <input
                 type="text"
                 name="childName"
@@ -66,7 +67,7 @@ class RegisterPage extends Component {
           <div>
             <center>
               <input
-                className="addChild"
+                className="addChildButton"
                 type="submit"
                 name="submit"
                 value="Save"

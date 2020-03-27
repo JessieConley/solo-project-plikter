@@ -1,41 +1,53 @@
 .addChildButton{
-  background-color:  #29a3a3;
+  background-color:#FB9300;
   border-radius: 30px;
-  border-color: #29a3a3;
-  color: #efebdc;
+  /* color: #efebdc; */
   min-height: 30px;
   min-width: 120px;
   outline:0;
   cursor: pointer;
   font-size: small;
+  margin-top: 20px;
 
 }
 
-h1{
-    color:#58AA6B
+.welcome{
+    color:#29a3a3
     
 }
 /* h2{
     color: #F56416
 } */
 
+.responsibilityHeader{
+    background-color:yellowgreen;
+    height: 75px;
+    padding:10px
+}
+
+.childDisplay{
+    background-color: #F9DD0C;
+    height: 125px;
+    padding: 50px
+}
 .addChildButton:hover{
     background-color:#efebdc;
-    color: #29a3a3;
+    color: #FB9300;
 }
 .addChildButton :hover {
-  background-color: #008183;
+  background-color: #FB9300;
+  
 }
 
 .childNameButton{
     color: #DD3355;
     border-color: #DD3355;
     border-radius: 30px;
-    padding: 5px;
-    margin: 10px;
-    min-width: 120px;
+    padding: 20px;
+    margin: 15px;
+    min-width: 140px;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
 
 }
 
