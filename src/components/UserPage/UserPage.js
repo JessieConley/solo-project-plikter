@@ -40,7 +40,7 @@ class UserPage extends Component {
         <h1 className="welcome">Hello, {this.props.user.name}!</h1>
         <div className="responsibilityHeader">
           <center>
-            <h2>Who's responsibility chart are we working with today?</h2>
+            <h2>Who's responsibility chart are you working with today?</h2>
           </center>
         </div>
 

@@ -102,7 +102,7 @@ class TaskManagerTable extends Component {
           <div>
             {this.props.tasks.length > 0 && (
               <>
-                <label htmlFor="Tasks">Select Responsibility:</label>
+                <label className="Tasks" htmlFor="Tasks">Select Responsibility:</label>
                 <select onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (
