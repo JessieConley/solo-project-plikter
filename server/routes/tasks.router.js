@@ -9,7 +9,7 @@ const router = express.Router();
 // Handles Ajax GET request to get tasks for select task dropdown
 router.get('/', (req, res) => {
   console.log("in tasks router GET", req.body);
-  const queryText = 'SELECT * from "tasks";';
+  const queryText = 'SELECT * from "tasks" ORDER BY "id";';
   pool.query(queryText)
     .then(result => {
       res.send(result.rows);
