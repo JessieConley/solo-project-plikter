@@ -102,11 +102,11 @@ class TaskManagerTable extends Component {
           <div>
             {this.props.tasks.length > 0 && (
               <>
-                <label className="Tasks" htmlFor="Tasks">Select Responsibility:</label>
-                <select onChange={this.handleAddTask("taskId")}>
+                <label className="tasks" htmlFor="Tasks">Select Responsibility:</label>
+                <select className="taskDropDown"  onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (
-                      <option className="formOption" key={taskNames.id} value={taskNames.id}>
+                      <option  className="formOption" key={taskNames.id} value={taskNames.id}>
                         {taskNames.task_name}
                       </option>
                     );
@@ -154,6 +154,7 @@ class TaskManagerTable extends Component {
 
                           <td>
                             <button
+                              className="statusButton"
                               onClick={() =>
                                 this.updateTaskStatus(
                                   taskNames.id,
@@ -162,20 +163,35 @@ class TaskManagerTable extends Component {
                                 )
                               }
                             >
-                              {taskNames.complete ? "Complete" : "Incomplete"}
+                              {taskNames.complete ? (
+                                <span role="img" aria-label="star">
+                                  ⭐ Complete
+                                </span>
+                              ) : (
+                                <span role="img" aria-label="blackSquare">
+                                  🔲 Incomplete
+                                </span>
+                              )}
                             </button>
                           </td>
                           <td>
-                            <button
-                              onClick={() =>
-                                this.deleteTask(
-                                  taskNames.id,
-                                  taskNames.child_id
-                                )
-                              }
-                            >
-                              Delete
-                            </button>
+                            <center>
+                              <button
+                                className="deleteButton"
+                                onClick={() =>
+                                  this.deleteTask(
+                                    taskNames.id,
+                                    taskNames.child_id
+                                  )
+                                }
+                              >
+                                <span role="img" aria-label="blackSquare">
+                                  <span role="img" aria-label="blackSquare">
+                                    ❎
+                                  </span>
+                                </span>
+                              </button>
+                            </center>
                           </td>
                         </tr>
                       );

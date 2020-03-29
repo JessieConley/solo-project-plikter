@@ -1,27 +1,5 @@
-table {
-  border-collapse: collapse;
-  border: 1px solid #405AB9;
-  width: 50%;
-  object-position: center;
-  box-shadow: 1px 1px 2px #D1B7A5;
-  margin-left: 25%;
-  background-color: #efebdc;
-} 
 
-th {
-  border: 3px solid #405AB9;
-  background-color:#405AB9;
-  color: white;
-  text-shadow: .5px .5px .5px #333;
-  text-align: left;
-  font-weight: bolder;
-}
 
-td{
-     background-color: #efebdc;
-     color: #405AB9;
-     border: 3px solid #405AB9;
-}
 .chartNameHeader{
     color:#29a3a3;
     /* text-shadow: .1px .1px .1px #333; */
@@ -52,6 +30,8 @@ td{
   outline:0;
   cursor: pointer;
   font-size: small;
+  
+  
 }
 
 
@@ -75,6 +55,50 @@ td{
   font-size: small;
 }
 
+.statusButton{
+  font-size: 15pt;
+  position: center
+}
+
+.deleteButton{
+  font-size: 20pt;
+ 
+
+}
+
 .tasks{
-    background-color: teal;
+  font-size: 15pt;
+}
+
+.taskDropDown{
+  background-color: lawngreen;
+  margin-top: 10pt;
+
+  font-size: 15pt;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #405AB9;
+  width: 50%;
+  object-position: center;
+  box-shadow: 1px 1px 2px #D1B7A5;
+  margin-left: 25%;
+  background-color: #efebdc;
+} 
+
+th {
+  border: 3px solid #405AB9;
+  background-color:#405AB9;
+  color: white;
+  text-shadow: .5px .5px .5px #333;
+  text-align: left;
+  font-weight: bolder;
+}
+
+td{
+     background-color: #efebdc;
+     color: black;
+     border: 3px solid #405AB9;
+     font-size: 15pt;
 }
