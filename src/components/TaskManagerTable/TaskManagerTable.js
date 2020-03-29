@@ -91,18 +91,18 @@ class TaskManagerTable extends Component {
     return (
       <div className="TaskManagerTable">
         <h2 className="chartNameHeader">
-          {this.props.activeChild.name}'s Responsibility Chart
+          {this.props.activeChild.name}'s Responsibility and Behavior Chart
         </h2>
         <center>
           <h3 className="formheader">
-            What are {this.props.activeChild.name}'s responsibilities for today?
+            What are {this.props.activeChild.name}'s responsibilities and behaviors for today?
           </h3>
         </center>
         <form onSubmit={this.addTask}>
           <div>
             {this.props.tasks.length > 0 && (
               <>
-                <label className="tasks" htmlFor="Tasks">Select Responsibility:</label>
+                <label className="tasks" htmlFor="Tasks">Select Responsibility or Behavior:</label>
                 <select className="taskDropDown"  onChange={this.handleAddTask("taskId")}>
                   {this.props.tasks.map(taskNames => {
                     return (

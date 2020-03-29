@@ -71,7 +71,7 @@
 }
 
 .taskDropDown{
-  background-color: lawngreen;
+  background-color: white;
   margin-top: 10pt;
 
   font-size: 15pt;
@@ -97,7 +97,7 @@ th {
 }
 
 td{
-     background-color: #efebdc;
+     background-color: #d9def2;
      color: black;
      border: 3px solid #405AB9;
      font-size: 15pt;
