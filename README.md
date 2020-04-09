@@ -2,7 +2,7 @@
 Plikter Responsibility and Behavior Application
 
 ## Description
-Plikter Responsibility and Behavior is a task manager application that parents can use with their children to set daily responsibility and behavior expectations for each child within the family. Users can set up a responsibility chart for each child in their houshold and select tasks and behavios appropriate for the child's age. As the day goes on, users can mark the responsibility or behvior as complete or incomplete, delete from the child's chart, or update with additional daily expecations as needed. 
+Plikter Responsibility and Behavior is a mobile-first task manager application designed for parents or guardians to work with their children on setting daily, age appropriate responsibility and behavior expectations through a task table for each child within the family. As the day goes on, users can mark the responsibility or behavior task as complete, delete from the child's chart, or update with additional daily tasks as needed. 
 
 
 # Prime Solo Project
@@ -48,23 +48,30 @@ CREATE TABLE "tasks"
 (
     "id" SERIAL PRIMARY KEY,
     "task_name" varchar,
-    "account_user_id" INT References "user"
 );
 
 INSERT INTO "tasks"
     ("task_name")
 VALUES
-    ('Make Bed'),
-    ('Clean Up Room'),
-    ('Help with Outdoor Chores'),
-    ('Fold Laundry and Put Away'),
-    ('Help with Indoor Chores'),
-    ('Keep Hands To Yourself'),
-    ('Share'),
-    ('Show Respect'),
-    ('Say Please and Thank You'),
-    ('No Whining'), 
-    ('Put Toys Away');
+    ('Collect Trash From Wastebaskets (Age 6+)'),
+    ('Water Plants and Flowers (Age 6+)'),
+    ('Clean Bathroom Sinks and Counter (Age 6+)'),
+    ('Get the Mail (Age 5+)'),
+    ('Empty Dishwasher (Age 6+)'),
+    ('Load Dishwasher (Age 4+)'),
+    ('Clear/Set Table (Age 4+)'),
+    ('Pick Up Toys (Age 2+)'1),
+    ('No Whining  (Age 3+)'),
+    ('Vacuum Floors (Age 6+)'),
+    ('Share (Age 2+)'),
+    ('Keep Hands To Yourself (Age 2+)'),
+    ('Feed Pets (Age 5+)'),
+    ('Put Away Laundry (Age 5+)'),
+    ('Comb Hair (Age 2+)'),
+    ('Clean Up Bedroom (Age 2+)'),
+    ('Make Bed (Age 3+)'),
+    ('Brush Teeth (Age 2+)'),
+    ('Collect Trash From Wastebaskets (Age 6+)';
 
 CREATE TABLE "user_tasks"
 (
@@ -85,15 +92,15 @@ CREATE TABLE "user_tasks"
     ```
     SERVER_SESSION_SECRET=superDuperSecret
     ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
 * Start postgres if not running already by using `brew services start postgresql`
 * Run `npm run server`
 * Run `npm run client`
 * Navigate to `localhost:3000`
+* You will see the application load on the webpage
 
 ## How to Use Application
--- From the home page, a user can sign up to create a new Parent/Guardian account
--- Once the user account has been created, the user will advance directly to their user account home page where they can start to add the names of the children they will be working with on responsibilities and behavior by selecting the 'Add Child' button
+-- On page load, a user can sign up to create a new Parent/Guardian account or a registered user can log-in to their account
+-- Once the user account has been created, the user will be logged in and advance directly to their user home page. The user can start to add their children to their account by selecting the 'Add Child' button.
 -- By clicking the 'Add Child' button, the user will be directed to a form page to add the  name of the child and their date of birth. Click the 'Save' button to save this information to the user account and direct to a confirmation page. 
 -- After receiving confirmation that the child has been added, the user can click back to their user account page by clicking the 'Home' button
 -- Once arriving back on the user Home page, the child name will be displayed. The user can click on their child/s name button to be directed to start creating a responsibility and behavior chart and managing tasks for this child. 
