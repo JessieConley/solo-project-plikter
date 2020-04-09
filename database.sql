@@ -29,17 +29,13 @@ CREATE TABLE "tasks"
 INSERT INTO "tasks"
     ("task_name", "level")
 VALUES
-    ('Make Bed', 2),
-    ('Clean Up Room', 1),
-    ('Help with Outdoor Chores', 4),
-    ('Fold Laundry and Put Away', 4),
-    ('Help with Indoor Chores', 3),
-    ('Keep Hands To Yourself', 1),
-    ('Share', 1),
-    ('Show Respect', 2),
-    ('Say Please and Thank You', 1),
-    ('No Whining', 1), 
-    ('Put Toys Away', 1);
+    ('Clear/Set Table (Age 4+)', 3),
+    ('Load Dishwasher (Age 4+)', 3),
+    ('Empty Dishwasher (Age 6+)', 4),
+    ('Get the Mail (Age 5+)', 4),
+    ('Clean Bathroom Sinks and Counter (Age 6+)', 4),
+    ('Water Plants and Flowers (Age 6+)', 4),
+    ('Collect Trash From Wastebaskets (Age 6+)', 4);
 
 CREATE TABLE "user_tasks"
 (

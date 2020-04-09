@@ -82,7 +82,7 @@ CREATE TABLE "user_tasks"
     "complete" boolean,
     "due_date" varchar
 );
-
+```
 
 
 ## Development Setup Instructions
