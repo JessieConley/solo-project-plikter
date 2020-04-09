@@ -99,10 +99,10 @@ CREATE TABLE "user_tasks"
 * You will see the application load on the webpage
 
 ## How to Use Application
--- On page load, a user can sign up to create a new Parent/Guardian account or a registered user can log-in to their account
--- Once the user account has been created, the user will be logged in and advance directly to their user home page. The user can start to add their children to their account by selecting the 'Add Child' button.
--- By clicking the 'Add Child' button, the user will be directed to a form page to add the  name of the child and their date of birth. Click the 'Save' button to save this information to the user account and direct to a confirmation page. 
--- After receiving confirmation that the child has been added, the user can click back to their user account page by clicking the 'Home' button
--- Once arriving back on the user Home page, the child name will be displayed. The user can click on their child/s name button to be directed to start creating a responsibility and behavior chart and managing tasks for this child. 
+* On page load, a user can sign up to create a new Parent/Guardian account or a registered user can log-in to their account with their username and password
+* Once the user account has been created, the user will be logged in automatically and advance directly to their user home page. The user can start to add their children to their account by selecting the Add Child button link.
+* By clicking the Add Child button link, the user will be directed to the Add Child page to add the name of the child and their date of birth, then click the 'Save' button link to save this information to the user account. The user will then be directed to a confirmation page confirming the child has been added to their account. 
+* After receiving confirmation that the child has been added to the user/s account, the user can click back to their User Account page by clicking the 'Home' button link
+* Once arriving back on the user Home page, the child name will be displayed. The user can click on their child/s name button to advance to the child/s task table and create the child's task list for the day, selecting tasks from the dropdown list on the page. 
 
 
