@@ -25,7 +25,8 @@ router.get('/:id', (req, res) => {
   console.log("in  tasks :id router GET", req.params.id);
   const queryText = `SELECT * FROM "tasks"
 JOIN "user_tasks" on "tasks"."id" = "user_tasks"."task_id"
-WHERE "user_tasks"."child_id" = ${req.params.id};`;
+WHERE "user_tasks"."child_id" = ${req.params.id}
+ORDER BY "tasks"."id" desc;`;
   pool.query(queryText)
     .then(result => {
       res.send(result.rows);
